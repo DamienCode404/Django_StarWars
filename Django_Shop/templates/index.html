@@ -1,0 +1,54 @@
+{% load tailwind_tags %}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Home Page</title>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+   {% tailwind_css %}
+</head>
+<body class="bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee]">
+    <header class="bg-white">
+        <nav class="flex justify-between items-center w-[92%] mx-auto">
+            <div>
+                <img class="w-24 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Star_wars2.svg/1200px-Star_wars2.svg.png">
+            </div>
+            <div
+                class="nav-links text-xl duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Products</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">About</a>
+                    </li>
+                    <li>
+                        <a class="text-red-500 hover:text-gray-500" href="#">Sales</a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="w-12 cursor-pointer" src="https://media.istockphoto.com/id/1206806317/vector/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=1RRQJs5NDhcB67necQn1WCpJX2YMfWZ4rYi1DFKlkNA="></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="bg-[#a6c1ee] text-white text-xl px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+    </header>
+    <div class="w-screen h-screen flex justify-center items-center">
+        <span class="text-white text-8xl font-bold">La force sera avec toi, toujours.</span>
+    </div>
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+</body>
+</html>
