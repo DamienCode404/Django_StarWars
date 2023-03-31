@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="w-screen h-screen flex justify-center items-center">
+    <h1 class="text-white text-8xl font-bold">Shop</h1>
+</div>
+  <div class="products">
+    {% for product in products %}
+      <div class="product">
+        <h2>{{ product.name }}</h2>
+        <p>Price: {{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+        <p>Description: {{ product.description }}</p>
+        {% if product.thumbnail %}
+          <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

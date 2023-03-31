@@ -13,25 +13,25 @@
     <header class="bg-white">
         <nav class="flex justify-between items-center w-[92%] mx-auto">
             <div>
-                <img class="w-24 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Star_wars2.svg/1200px-Star_wars2.svg.png">
+                <a href="/"><img class="w-24 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Star_wars2.svg/1200px-Star_wars2.svg.png"></a>
             </div>
             <div
                 class="nav-links text-xl duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <li>
-                        <a class="hover:text-gray-500" href="#">Products</a>
+                        <a class="hover:text-gray-500" href="/shop/">Products</a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-500" href="#">Contact</a>
+                        <a class="hover:text-gray-500" href="/contact/">Contact</a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-500" href="#">About</a>
+                        <a class="hover:text-gray-500" href="/about/">About</a>
                     </li>
                     <li>
-                        <a class="text-red-500 hover:text-gray-500" href="#">Sales</a>
+                        <a class="text-red-500 hover:text-gray-500" href="/shop/">Sales</a>
                     </li>
                     <li>
-                        <a href="#"><img class="w-12 cursor-pointer" src="https://media.istockphoto.com/id/1206806317/vector/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=1RRQJs5NDhcB67necQn1WCpJX2YMfWZ4rYi1DFKlkNA="></a>
+                        <a href="/shop/"><img class="w-12 cursor-pointer" src="https://media.istockphoto.com/id/1206806317/vector/shopping-cart-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=1RRQJs5NDhcB67necQn1WCpJX2YMfWZ4rYi1DFKlkNA="></a>
                     </li>
                 </ul>
             </div>
@@ -40,9 +40,13 @@
                 <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
     </header>
+
+    {% block content  %}
     <div class="w-screen h-screen flex justify-center items-center">
         <span class="text-white text-8xl font-bold">La force sera avec toi, toujours.</span>
     </div>
+    {% endblock %}
+
     <script>
         const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
