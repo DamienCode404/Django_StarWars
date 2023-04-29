@@ -4,17 +4,31 @@
 <div class="w-screen h-screen flex justify-center items-center">
     <h1 class="text-white text-8xl font-bold">Shop</h1>
 </div>
-  <div class="products">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     {% for product in products %}
-      <div class="product">
-        <h2>{{ product.name }}</h2>
-        <p>Price: {{ product.price }}</p>
-        <p>Stock: {{ product.stock }}</p>
-        <p>Description: {{ product.description }}</p>
-        {% if product.thumbnail %}
-          <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
-        {% endif %}
-      </div>
+      <div class="h-auto max-w-full rounded-lg">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          {% if product.thumbnail %}
+          <a href="#">
+              <img class="rounded-t-lg" src="{{ product.thumbnail.url }}" alt="{{ product.name }}" />
+          </a>
+          {% endif %}
+          <div class="p-5">
+              <a href="#">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ product.name }}</h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ product.description }}</p>
+              <span class="text-3xl font-bold text-gray-900 dark:text-white">Stock: {{ product.stock }}</span>
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white">Price: {{ product.price }} €</span>
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+            </div>
+          </div>
+        </div> 
+      </div>     
     {% endfor %}
   </div>
 {% endblock %}
+
+
+
