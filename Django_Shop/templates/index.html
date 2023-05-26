@@ -9,21 +9,6 @@
     {% tailwind_css %}
   </head>
 
-  <style>
-    .carousel {
-      overflow: hidden;
-    }
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .carousel-item {
-      flex: 0 0;
-      padding: 1rem;
-      display: none;
-    }
-  </style>
-
   <body class="bg-black flex flex-col min-h-screen">
     <header>
       <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full shadow-lg z-50">
@@ -110,20 +95,23 @@
       </nav>
     </header>
 
-    {% block content %}
-    <img
-      src="../media/backround2.jpg"
-      class="w-full h-screen object-cover scale-x-[-1]"
-    ></img>
-    <div class="w-full h-screen absolute top-0 left-0 bg-white/10">
-        <div class="w-full md:w-auto m-80 py-5 flex justify-center items-center bg-gray-800">
-          <h1 class="sm:text-5xl text-4xl font-bold text-white p-10 ">Bienvenue chasseur de prime !</h1>
+    <main class="flex-grow">
+
+      {% block content %}
+
+      <div class="relative w-full h-screen">
+        <img src="../media/backround2.jpg" class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
+        <div class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white text-center">Bienvenue chasseur de prime</h1>
         </div>
-          <div class="carousel p-4 mb-10 flex justify-center items-center">
-            <div class="carousel-inner w-1/3 h-42 grid grid-cols-1 gap-y-48">
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Introduction</h1>
-                <p class="text-gray-700">
+      </div>
+      
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+
+              <div class="bg-white p-4 cursor-pointer text-center">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Introduction</h1>
+                <p class="text-xl text-gray-700 p-6">
                   Loin, très loin, dans une galaxie en perpétuel conflit, l'ordre et
                   la justice sont mis à rude épreuve. Les forces de l'Empire
                   tyrannique sèment la terreur et l'oppression à travers les systèmes
@@ -133,9 +121,14 @@
                   des esprits audacieux.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Nous recrutons !</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/palpatine.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer text-center">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Nous recrutons !</h1>
+                <p class="text-xl text-gray-700 p-6">
                   La Guilde des Chasseurs de prime est à la recherche de courageux
                   individus pour rejoindre ses rangs. Si vous avez soif d'aventure,
                   que vous êtes prêt à affronter les pires criminels de la galaxie et
@@ -143,9 +136,14 @@
                   est pour vous.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Vos missions</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Vos missions</h1>
+                <p class="text-xl text-gray-700 p-6">
                   En tant que chasseur de prime, vous incarnerez une figure
                   légendaire, un gardien sans peur ni pitié, dont la réputation sera
                   connue à travers les étoiles. Vous vous déplacerez de système en
@@ -156,9 +154,15 @@
                   missions.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Profil recherché</h1>
-                <p class="text-gray-700">
+
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Profil recherché</h1>
+                <p class="text-xl text-gray-700 p-6">
                   Quelles sont les qualités requises pour devenir un chasseur de prime
                   ? Tout d'abord, une détermination inébranlable et une volonté de fer
                   sont essentielles. Vous devrez faire face à des situations
@@ -166,9 +170,14 @@
                   toujours garder un sang-froid absolu.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Prérequis</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Prérequis</h1>
+                <p class="text-xl text-gray-700 p-6">
                   Une connaissance des systèmes stellaires, des planètes et des
                   cultures diverses sera également un atout précieux. La capacité à
                   s'adapter rapidement à des environnements hostiles et à naviguer
@@ -176,9 +185,14 @@
                   succès de vos missions.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Petit +</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Petit +</h1>
+                <p class="text-xl text-gray-700 p-6">
                   Si vous êtes un as du pilotage, un tireur d'élite ou un maître du
                   combat au corps à corps, vos compétences seront mises à profit. Les
                   chasseurs de prime doivent être polyvalents, capables de s'adapter à
@@ -186,50 +200,48 @@
                   créative.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Rémunération</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Rémunération</h1>
+                <p class="text-xl text-gray-700 p-6">
                   La Guilde des Chasseurs de prime vous offre un réseau de contacts,
                   de soutien et de ressources pour vous aider dans votre quête de
                   justice. Vous serez récompensé généreusement pour chaque cible
                   capturée, avec des primes à la hauteur des plus grandes légendes.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Rejoignez-nous !</h1>
-                <p class="text-gray-700">
+
+              <div class="cursor-pointer">
+                <img class="object-cover" src="../media/recrues.jpg"></img>
+              </div>
+
+              <div class=" bg-white p-4 cursor-pointer">
+                <h1 class="text-2xl sm:text-4xl font-bold p-6">Rejoignez-nous !</h1>
+                <p class="text-xl text-gray-700 p-6">
                   Rejoignez-nous maintenant et devenez une force de changement dans la
                   galaxie. La Guilde des Chasseurs de prime a besoin de vous pour
                   rétablir l'équilibre et apporter la paix aux systèmes opprimés.
                 </p>
               </div>
-              <div class="carousel-item bg-white p-4 cursor-pointer">
-                <h1 class="text-xl font-bold mb-2">Poste de prestige</h1>
-                <p class="text-gray-700">
-                  Que la Force soit avec vous alors que vous embarquez dans cette
-                  aventure sans pareille. Faites votre marque dans les étoiles et
-                  laissez votre héritage briller à travers les âges. Rejoignez-nous et
-                  devenez un chasseur de prime légendaire dans l'univers infini de
-                  Star Wars !
-                </p>
-              </div>
+
             </div>
           </div>
-      </div>
-    </div>
-    {% endblock %}
+        </div>
 
-    <footer class="dark:bg-gray-800 mt-auto">
-      <div
-        class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
-      >
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-          >© 2023 <a href="/" class="hover:underline">Black Market™</a>. All
-          Rights Reserved.
+      {% endblock %}
+
+    </main>
+
+    <footer class="dark:bg-gray-800">
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          © 2023 <a href="/" class="hover:underline">Black Market™</a>. All Rights Reserved.
         </span>
-        <ul
-          class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
-        >
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
             <a href="/about/" class="mr-4 hover:underline md:mr-6">About</a>
           </li>
@@ -245,54 +257,11 @@
         </ul>
       </div>
     </footer>
+  </div>
+    
 
     <script>
-      const carouselInner = document.querySelector(".carousel-inner");
-      const carouselItems = Array.from(
-        document.querySelectorAll(".carousel-item")
-      );
-      let currentIndex = 0;
 
-      // Affiche le bloc carousel-item courant
-      function showCurrentItem() {
-        carouselItems.forEach((item, index) => {
-          item.style.display = index === currentIndex ? "block" : "none";
-        });
-      }
-
-      // Défile vers le bloc carousel-item suivant
-      function showNextItem() {
-        currentIndex = (currentIndex + 1) % carouselItems.length;
-        showCurrentItem();
-      }
-
-      // Défile vers le bloc carousel-item précédent
-      function showPreviousItem() {
-        currentIndex =
-          (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-        showCurrentItem();
-      }
-
-      // Ajoute les événements de défilement avec la souris
-      const carousel = document.querySelector(".carousel");
-      carousel.addEventListener("click", showNextItem);
-      carousel.addEventListener("wheel", function (event) {
-        if (event.deltaY > 0) {
-          showNextItem();
-        }
-        event.preventDefault();
-      });
-
-      // Ajoute les événements de défilement avec les flèches directionnelles
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "ArrowRight") {
-          showNextItem();
-        } else if (event.key === "ArrowLeft") {
-          showPreviousItem();
-        }
-      });
-
-      showCurrentItem();
     </script>
   </body>
 </html>
