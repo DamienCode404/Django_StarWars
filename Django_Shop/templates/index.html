@@ -9,6 +9,16 @@
     {% tailwind_css %}
   </head>
 
+  <style>
+    .hover-effect {
+      transition: box-shadow 0.3s;
+    }
+  
+    .hover-effect:hover {
+      box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.5);
+    }
+  </style>
+
   <body class="bg-black flex flex-col min-h-screen">
     <header>
       <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full shadow-lg z-50">
@@ -99,38 +109,36 @@
 
       {% block content %}
 
-      <div class="relative w-full h-screen">
-        <img src="../media/background2.jpg" class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
-        <div class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <h1 class="text-3xl sm:text-5xl font-bold text-white text-center">Bienvenue chasseur de prime</h1>
+        <div class="relative w-full h-screen">
+          <img src="../media/background2.jpg" class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
+          <div class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <h1 class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center">Bienvenue chasseur de prime</h1>
+          </div>
         </div>
-      </div>
-      
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4">
 
-              <div class="bg-white p-4 cursor-pointer text-center">
-
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Introduction</h1>
-                <p class="text-sm sm:text-base break-words text-gray-700 p-6">
-                  Loin, très loin, dans une galaxie en perpétuel conflit, l'ordre et
-                  la justice sont mis à rude épreuve. Les forces de l'Empire
-                  tyrannique sèment la terreur et l'oppression à travers les systèmes
-                  stellaires, tandis que des seigneurs du crime galactiques prospèrent
-                  dans l'ombre. Dans ces temps sombres, l'équilibre est fragile et la
-                  quête de justice devient la responsabilité des âmes intrépides et
-                  des esprits audacieux.
+                <p class="text-sm lg:text-lg sm:text-base break-words p-6">
+                  Loin, très loin, dans une galaxie en perpétuel conflit, l'ordre et 
+                  la justice sont mis à rude épreuve. Les forces de l'Empire tyrannique 
+                  sèment la terreur et l'oppression à travers les systèmes stellaires, 
+                  tandis que des seigneurs du crime galactiques prospèrent dans l'ombre. 
+                  Dans ces temps sombres, l'équilibre est fragile et la quête de justice 
+                  devient la responsabilité des âmes intrépides et des esprits audacieux.
                 </p>
               </div>
+          
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] sm:object-right md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/palpatine.jpg"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] sm:object-right md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/palpatine.jpg"></img>
               </div>
 
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Nous recrutons !</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   La Guilde des Chasseurs de prime est à la recherche de courageux
                   individus pour rejoindre ses rangs. Si vous avez soif d'aventure,
                   que vous êtes prêt à affronter les pires criminels de la galaxie et
@@ -139,13 +147,13 @@
                 </p>
               </div>
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/recrues.jpg"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/recrues.jpg"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Vos missions</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   En tant que chasseur de prime, vous incarnerez une figure
                   légendaire, un gardien sans peur ni pitié, dont la réputation sera
                   connue à travers les étoiles. Vous vous déplacerez de système en
@@ -158,13 +166,13 @@
               </div>
 
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/planet.png"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/planet.png"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Profil recherché</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   Quelles sont les qualités requises pour devenir un chasseur de prime
                   ? Tout d'abord, une détermination inébranlable et une volonté de fer
                   sont essentielles. Vous devrez faire face à des situations
@@ -173,13 +181,13 @@
                 </p>
               </div>
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/background.jpeg"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/background.jpeg"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Prérequis</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   Une connaissance des systèmes stellaires, des planètes et des
                   cultures diverses sera également un atout précieux. La capacité à
                   s'adapter rapidement à des environnements hostiles et à naviguer
@@ -188,13 +196,13 @@
                 </p>
               </div>
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/jawa.png"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/jawa.png"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Petit +</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   Si vous êtes un as du pilotage, un tireur d'élite ou un maître du
                   combat au corps à corps, vos compétences seront mises à profit. Les
                   chasseurs de prime doivent être polyvalents, capables de s'adapter à
@@ -203,13 +211,13 @@
                 </p>
               </div>
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/background2.jpg"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/background2.jpg"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Rémunération</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   La Guilde des Chasseurs de prime vous offre un réseau de contacts,
                   de soutien et de ressources pour vous aider dans votre quête de
                   justice. Vous serez récompensé généreusement pour chaque cible
@@ -217,13 +225,13 @@
                 </p>
               </div>
 
-              <div class="cursor-pointer">
-                <img class="object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/currency.png"></img>
+              <div id="hover" class="cursor-pointer rounded-md hover-effect">
+                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/currency.png"></img>
               </div>
 
-              <div class=" bg-white p-4 cursor-pointer text-center">
+              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center sm:col-span-2 md:col-span-2 lg:col-span-1 rounded-md flex flex-col justify-center hover-effect">
                 <h1 class="text-2xl sm:text-4xl font-bold p-6">Rejoignez-nous !</h1>
-                <p class="break-words text-gray-700 p-6">
+                <p class="break-words lg:text-lg p-6">
                   Rejoignez-nous maintenant et devenez une force de changement dans la
                   galaxie. La Guilde des Chasseurs de prime a besoin de vous pour
                   rétablir l'équilibre et apporter la paix aux systèmes opprimés.
@@ -262,8 +270,11 @@
   </div>
     
 
-    <script>
-
-    </script>
+  <script>
+    function myHoverFunction() {
+      const hoverDiv = document.getElementById("hover");
+      hoverDiv.classList.toggle("hover-effect");
+    }
+  </script>
   </body>
 </html>
