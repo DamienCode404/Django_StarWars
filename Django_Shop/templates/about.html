@@ -1,18 +1,48 @@
-{% extends 'index.html' %}
+{% extends 'index.html' %} {% block content %}
 
-{% block content %}
-<div class="w-full md:w-auto flex justify-center items-center m-24 pt-24">
-    <h1 class="text-white text-8xl font-bold">About</h1>
+<h1
+  class="w-full mt-16 p-24 animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
+>
+  About us
+</h1>
+
+<div
+  class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 p-4"
+>
+  {% for people in peoples %}
+  <div class="h-auto max-w-full rounded-lg flex flex-col justify-center">
+    <div
+      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+    >
+      {% if people.thumbnail %}
+      <a href="#">
+        <img
+          class="w-full h-80 object-cover object-top rounded-t-lg"
+          src="{{ people.thumbnail.url }}"
+          alt="{{ people.name }}"
+        />
+      </a>
+      {% endif %}
+
+      <div class="flex flex-col items-center justify-center">
+        <a href="#">
+          <h5
+            class="p-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+          >
+            {{ people.name }}
+          </h5>
+        </a>
+        <a
+          href="#"
+          class="w-full h-12 rounded-b-lg text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >Info</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
-<div class="w-full md:w-auto flex justify-center items-center">
-    <span class="text-white text-2xl font-bold text-center m-24">
-        Bienvenue sur notre site web Star Wars, où vous pouvez trouver une vaste sélection d'objets et de produits inspirés par cette célèbre saga cinématographique. Notre passion pour Star Wars nous a poussés à créer cette boutique en ligne, afin de partager notre amour pour cette franchise avec d'autres fans du monde entier.
 
-Nous proposons une large gamme de produits, allant des figurines de collection aux vêtements en passant par les accessoires de maison et les gadgets électroniques. Chacun de nos produits est soigneusement sélectionné pour répondre aux normes de qualité les plus élevées et pour vous offrir une expérience d'achat en ligne satisfaisante.
-
-Nous sommes fiers de dire que notre équipe est composée de fans dévoués de Star Wars, qui apportent leur expertise et leur passion à chaque aspect de notre entreprise. Nous nous engageons à fournir un excellent service à la clientèle et à vous offrir une expérience d'achat en ligne agréable et sans tracas.
-
-Nous espérons que vous apprécierez notre sélection de produits et que vous trouverez tout ce que vous cherchez sur notre site. Que la Force soit avec vous !
-    </span>
-</div>
-{% endblock content %}
+{% endblock content %} {% block scripts %}
+<script></script>
+{% endblock scripts %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Products.models import Product
+from Products.models import People
 
 def index(request):
     return render(request, "index.html")
@@ -13,4 +14,6 @@ def contact(request):
     return render(request, "contact.html")
 
 def about(request):
-    return render(request, "about.html")
+    peoples = People.objects.all()
+    context = {'peoples': peoples}
+    return render(request, "about.html", context)

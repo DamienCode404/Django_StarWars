@@ -11,3 +11,13 @@ class Product(models.Model):
     
     def __str__(self):
         return f"{self.name} ({self.stock})"
+    
+class People(models.Model):
+    name = models.CharField(max_length=128)
+    price = models.FloatField(default=0.0)
+    stock = models.IntegerField(default=1)
+    description = models.TextField(blank=True)
+    thumbnail = models.ImageField(upload_to="peoples", blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.name}"
