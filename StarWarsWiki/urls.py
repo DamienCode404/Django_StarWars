@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.urls import path
 
-from .views import index, contact, characters, fake_request_view, films, planets, species, starships_vehicles
+from .views import index, contact, characters, fake_request_view, films, planets, species, starships_vehicles, character_details
 from StarWarsWiki import settings
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     path('species/', species, name="species"),
     path('starships_vehicles/', starships_vehicles, name="starships_vehicles"),
     path('404/', fake_request_view, name='fake-request'),
+    path('id/<str:character_id>/', character_details, name='character_details'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

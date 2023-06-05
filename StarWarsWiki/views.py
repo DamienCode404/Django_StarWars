@@ -1,5 +1,6 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.http import Http404
 
 def index(request):
     return render(request, "index.html")
@@ -14,34 +15,57 @@ def fake_request_view(request):
     return render(request, 'error.html', {'error_message': error_message})
 
 def characters(request):
-    characters = []
-    next_url = 'https://swapi.dev/api/people/'
+    url = 'https://akabab.github.io/starwars-api/api/all.json'
+    response = requests.get(url)
 
-    while next_url:
-        response = requests.get(next_url)
-
-        if response.status_code == 200:
-            data = response.json()
-            characters += data['results']
-            next_url = data['next']
-        else:
-            error_message = 'Une erreur s\'est produite lors de la récupération des personnages de Star Wars.'
-            return render(request, 'error.html', {'error_message': error_message})
-
-    # Récupérer le homeworld pour chaque personnage
-    for character in characters:
-        homeworld_url = character['homeworld']
-        homeworld_response = requests.get(homeworld_url)
-        
-        if homeworld_response.status_code == 200:
-            homeworld_data = homeworld_response.json()
-            character['homeworld'] = homeworld_data['name']
-        else:
-            character['homeworld'] = 'Inconnu'
+    if response.status_code == 200:
+        data = response.json()
+        characters = data
+    else:
+        error_message = 'Une erreur s\'est produite lors de la récupération des personnages de Star Wars.'
+        return render(request, 'error.html', {'error_message': error_message})
 
     context = {'characters': characters}
     return render(request, 'characters.html', context)
 
+def get_character_details(character_id):
+    url = f'https://akabab.github.io/starwars-api/api/id/{character_id}.json'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        character_details = response.json()
+        return character_details
+    else:
+        return None
+
+def character_details(request, character_id):
+    # Convertir l'ID du personnage en une chaîne de caractères
+    character_id = str(character_id)
+
+    # Récupérer les détails du personnage (vous devrez implémenter cette logique)
+    character = get_character_details(character_id)
+
+    context = {'character': character}
+    return render(request, 'character_details.html', context)
+
+# def character_details(request, character_id):
+#     # Convertir l'ID du personnage en une chaîne de caractères
+#     character_id = str(character_id)
+
+#     # Charger le template correspondant à l'ID du personnage
+#     template_name = f"{character_id}.html"
+#     try:
+#         return render(request, template_name, {'character_id': character_id})
+#     except:
+#         # Récupérer les détails du personnage (vous devrez implémenter cette logique)
+#         character = get_character_details(character_id)
+
+#         if not character:
+#             return render(request, 'error.html', status=404)
+
+#         context = {'character': character}
+#         return render(request, 'id/character_details.html', context)
+    
 def films(request):
     url = 'https://swapi.dev/api/films/'
     response = requests.get(url)
@@ -133,3 +157,4 @@ def starships_vehicles(request):
 
     context = {'starships': starships, 'vehicles': vehicles}
     return render(request, 'starships_vehicles.html', context)
+

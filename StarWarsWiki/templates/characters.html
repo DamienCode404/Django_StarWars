@@ -7,27 +7,36 @@
 </h1>
 
 <div
-  class="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 p-4"
+  class="justify-center grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 p-8"
 >
   {% for character in characters %}
-  <div class="h-auto max-w-full rounded-lg flex flex-col justify-center">
+  <div
+    class="h-auto max-w-full rounded-lg flex flex-col justify-center items-center"
+  >
     <div
-      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      class="max-w-sm w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
-      <div class="flex flex-col items-center justify-center text-white">
-        <h5 class="p-5 text-2xl font-bold tracking-tight">
-          {{ character.name }}
-        </h5>
-        <div class="p-5">
-          <p>Taille: {{ character.height }} cm</p>
-          <p>Poids: {{ character.mass }} kg</p>
-          <p>Couleur des cheveux: {{ character.hair_color }}</p>
-          <p>Couleur de la peau: {{ character.skin_color }}</p>
-          <p>Couleur des yeux: {{ character.eye_color }}</p>
-          <p>Année de naissance: {{ character.birth_year }}</p>
-          <p>Genre: {{ character.gender }}</p>
-          <p>Planète d'origine: {{ character.homeworld }}</p>
-        </div>
+      <a href="/id/{{ character.id }}">
+        <img
+          class="w-full h-96 object-cover object-top rounded-t-lg"
+          src="{{ character.image }}"
+          alt="{{ character.name }}"
+        />
+      </a>
+
+      <div class="flex flex-col items-center justify-center">
+        <a href="/id/{{ character.id }}">
+          <h5
+            class="p-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+          >
+            {{ character.name }}
+          </h5>
+        </a>
+        <a
+          href="/id/{{ character.id }}"
+          class="w-full h-12 rounded-b-lg text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >Info</a
+        >
       </div>
     </div>
   </div>
