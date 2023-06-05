@@ -1,0 +1,26 @@
+{% extends 'index.html' %} {% block content %}
+
+<h1 class="text-4xl font-bold mb-8">Liste des espèces Star Wars</h1>
+
+<div
+  class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  {% for specie in species %}
+  <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
+    <h2 class="text-xl font-bold mb-2">{{ specie.name }}</h2>
+    <p class="text-gray-600">Classification: {{ specie.classification }}</p>
+    <p class="text-gray-600">Désignation: {{ specie.designation }}</p>
+    <p class="text-gray-600">Taille moyenne: {{ specie.average_height }}</p>
+    <p class="text-gray-600">Couleurs de peau: {{ specie.skin_colors }}</p>
+    <p class="text-gray-600">Couleurs de cheveux: {{ specie.hair_colors }}</p>
+    <p class="text-gray-600">Couleurs des yeux: {{ specie.eye_colors }}</p>
+    <p class="text-gray-600">
+      Espérance de vie moyenne: {{ specie.average_lifespan }}
+    </p>
+    <p class="text-gray-600">Planète d'origine: {{ specie.homeworld }}</p>
+    <p class="text-gray-600">Langue: {{ specie.language }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

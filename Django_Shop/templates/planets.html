@@ -1,0 +1,23 @@
+{% extends 'index.html' %} {% block content %}
+
+<h1 class="text-4xl font-bold mb-8">Liste des planètes Star Wars</h1>
+
+<div
+  class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  {% for planet in planets %}
+  <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
+    <h2 class="text-xl font-bold mb-2">{{ planet.name }}</h2>
+    <p class="text-gray-600">Rotation: {{ planet.rotation_period }}</p>
+    <p class="text-gray-600">Orbite: {{ planet.orbital_period }}</p>
+    <p class="mt-4">Diamètre: {{ planet.diameter }}</p>
+    <p>Climat: {{ planet.climate }}</p>
+    <p>Gravité: {{ planet.gravity }}</p>
+    <p>Terrain: {{ planet.terrain }}</p>
+    <p>Eau en surface: {{ planet.surface_water }}</p>
+    <p>Population: {{ planet.population }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

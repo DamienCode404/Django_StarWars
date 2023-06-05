@@ -1,0 +1,51 @@
+{% extends 'index.html' %} {% block content %}
+
+<h1 class="text-4xl font-bold mb-8">
+  Liste des vaisseaux spatiaux et véhicules Star Wars
+</h1>
+
+<div
+  class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  {% for starship in starships %}
+  <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
+    <h2 class="text-xl font-bold mb-2">{{ starship.name }}</h2>
+    <p class="text-gray-600">Modèle: {{ starship.model }}</p>
+    <p class="text-gray-600">Constructeur: {{ starship.manufacturer }}</p>
+    <p class="text-gray-600">Coût en crédits: {{ starship.cost_in_credits }}</p>
+    <p class="text-gray-600">Longueur: {{ starship.length }}</p>
+    <p class="text-gray-600">
+      Vitesse atmosphérique maximale: {{ starship.max_atmosphering_speed }}
+    </p>
+    <p class="text-gray-600">Équipage: {{ starship.crew }}</p>
+    <p class="text-gray-600">Passagers: {{ starship.passengers }}</p>
+    <p class="text-gray-600">
+      Capacité de chargement: {{ starship.cargo_capacity }}
+    </p>
+    <p class="text-gray-600">Consommables: {{ starship.consumables }}</p>
+    <p class="text-gray-600">Hyperdrive: {{ starship.hyperdrive_rating }}</p>
+    <p class="text-gray-600">MGLT: {{ starship.MGLT }}</p>
+    <p class="text-gray-600">Classe: {{ starship.starship_class }}</p>
+  </div>
+  {% endfor %} {% for vehicle in vehicles %}
+  <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
+    <h2 class="text-xl font-bold mb-2">{{ vehicle.name }}</h2>
+    <p class="text-gray-600">Modèle: {{ vehicle.model }}</p>
+    <p class="text-gray-600">Constructeur: {{ vehicle.manufacturer }}</p>
+    <p class="text-gray-600">Coût en crédits: {{ vehicle.cost_in_credits }}</p>
+    <p class="text-gray-600">Longueur: {{ vehicle.length }}</p>
+    <p class="text-gray-600">
+      Vitesse atmosphérique maximale: {{ vehicle.max_atmosphering_speed }}
+    </p>
+    <p class="text-gray-600">Équipage: {{ vehicle.crew }}</p>
+    <p class="text-gray-600">Passagers: {{ vehicle.passengers }}</p>
+    <p class="text-gray-600">
+      Capacité de chargement: {{ vehicle.cargo_capacity }}
+    </p>
+    <p class="text-gray-600">Consommables: {{ vehicle.consumables }}</p>
+    <p class="text-gray-600">Classe: {{ vehicle.vehicle_class }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

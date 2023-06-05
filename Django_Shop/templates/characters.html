@@ -1,0 +1,39 @@
+{% extends 'index.html' %} {% block content %}
+
+<h1
+  class="w-full mt-16 p-24 animate-pulse text-5xl font-bold text-white text-center"
+>
+  All Characters
+</h1>
+
+<div
+  class="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 p-4"
+>
+  {% for character in characters %}
+  <div class="h-auto max-w-full rounded-lg flex flex-col justify-center">
+    <div
+      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+    >
+      <div class="flex flex-col items-center justify-center text-white">
+        <h5 class="p-5 text-2xl font-bold tracking-tight">
+          {{ character.name }}
+        </h5>
+        <div class="p-5">
+          <p>Taille: {{ character.height }} cm</p>
+          <p>Poids: {{ character.mass }} kg</p>
+          <p>Couleur des cheveux: {{ character.hair_color }}</p>
+          <p>Couleur de la peau: {{ character.skin_color }}</p>
+          <p>Couleur des yeux: {{ character.eye_color }}</p>
+          <p>Année de naissance: {{ character.birth_year }}</p>
+          <p>Genre: {{ character.gender }}</p>
+          <p>Planète d'origine: {{ character.homeworld }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %} {% block scripts %}
+<script></script>
+{% endblock scripts %}
