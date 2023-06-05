@@ -1,4 +1,4 @@
-"""Django_Shop URL Configuration
+"""StarWarsWiki URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -17,7 +17,7 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from .views import index, contact, characters, fake_request_view, films, planets, species, starships_vehicles
-from Django_Shop import settings
+from StarWarsWiki import settings
 
 urlpatterns = [
     path('', index, name="index"),
