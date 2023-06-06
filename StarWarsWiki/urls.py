@@ -16,17 +16,16 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.urls import path
 
-from .views import index, contact, characters, fake_request_view, films, planets, species, starships_vehicles, character_details
+from .views import index, characters, error_404, films, planets, species, starships_vehicles, character_details
 from StarWarsWiki import settings
 
 urlpatterns = [
     path('', index, name="index"),
-    path('contact/', contact, name="contact"), 
     path('films/', films, name="films"),
     path('characters/', characters, name="characters"),
     path('planets/', planets, name="planets"),
     path('species/', species, name="species"),
     path('starships_vehicles/', starships_vehicles, name="starships_vehicles"),
-    path('404/', fake_request_view, name='fake-request'),
+    path('404/', error_404, name='404'),
     path('id/<str:character_id>/', character_details, name='character_details'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

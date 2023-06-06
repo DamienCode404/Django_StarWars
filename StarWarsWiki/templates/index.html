@@ -13,7 +13,7 @@
     .hover-effect {
       transition: box-shadow 0.3s;
     }
-  
+
     .hover-effect:hover {
       box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.5);
     }
@@ -21,7 +21,9 @@
 
   <body class="bg-black flex flex-col min-h-screen">
     <header>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full shadow-lg z-50">
+      <nav
+        class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full shadow-lg z-50"
+      >
         <div
           class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
         >
@@ -107,13 +109,6 @@
                   >Starships & Vehicles</a
                 >
               </li>
-              <li>
-                <a
-                  href="/contact/"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  >Contact</a
-                >
-              </li>
             </ul>
           </div>
         </div>
@@ -121,152 +116,182 @@
     </header>
 
     <main class="flex-grow">
-
       {% block content %}
 
-        <div class="relative w-full h-screen">
-          <img src="../media/home/background2.jpg" class="absolute inset-0 w-full h-full object-cover scale-x-[-1]" />
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-            <h1 class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center">Bienvenue chasseur de prime</h1>
-          </div>
+      <div class="relative w-full h-screen">
+        <img
+          src="../media/home/background2.jpg"
+          class="absolute inset-0 w-full h-full object-cover scale-x-[-1]"
+        />
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
+        >
+          <h1
+            class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
+          >
+            Bienvenue petit Padawan
+          </h1>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 xl:grid-cols-2 p-4">
+        <div
+          class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect"
+        >
+          <a href="/films/">
+            <h1 class="text-2xl sm:text-4xl font-bold p-6">Films</h1>
+            <p class="break-words lg:text-lg p-6">
+              Les films constituent une partie essentielle de l'univers de Star
+              Wars. Ils nous transportent dans une galaxie lointaine et nous
+              font vivre des aventures épiques. Chaque film offre son lot
+              d'action, de drame, de romance et de moments mémorables. Des
+              personnages emblématiques, tels que Luke Skywalker, Darth Vader et
+              Princess Leia, prennent vie à l'écran et nous captivent avec leurs
+              histoires. Que ce soit la trilogie originale, la prélogie ou la
+              nouvelle trilogie, chaque film apporte sa contribution à
+              l'histoire riche et complexe de Star Wars.
+            </p>
+          </a>
         </div>
 
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4">
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Introduction</h1>
-                <p class="text-sm lg:text-lg sm:text-base break-words p-6">
-                  Loin, très loin, dans une galaxie en perpétuel conflit, l'ordre et 
-                  la justice sont mis à rude épreuve. Les forces de l'Empire tyrannique 
-                  sèment la terreur et l'oppression à travers les systèmes stellaires, 
-                  tandis que des seigneurs du crime galactiques prospèrent dans l'ombre. 
-                  Dans ces temps sombres, l'équilibre est fragile et la quête de justice 
-                  devient la responsabilité des âmes intrépides et des esprits audacieux.
-                </p>
-              </div>
-          
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] sm:object-right md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/palpatine.jpg"></img>
-              </div>
-
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Nous recrutons !</h1>
-                <p class="break-words lg:text-lg p-6">
-                  La Guilde des Chasseurs de prime est à la recherche de courageux
-                  individus pour rejoindre ses rangs. Si vous avez soif d'aventure,
-                  que vous êtes prêt à affronter les pires criminels de la galaxie et
-                  à faire pencher la balance en faveur de la justice, cette annonce
-                  est pour vous.
-                </p>
-              </div>
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/recrues.jpg"></img>
-              </div>
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Vos missions</h1>
-                <p class="break-words lg:text-lg p-6">
-                  En tant que chasseur de prime, vous incarnerez une figure
-                  légendaire, un gardien sans peur ni pitié, dont la réputation sera
-                  connue à travers les étoiles. Vous vous déplacerez de système en
-                  système, traquant les fugitifs, les criminels de guerre et les
-                  malfrats qui échappent aux griffes de la loi. Vous aurez accès à des
-                  technologies de pointe, à des vaisseaux spatiaux rapides et furtifs,
-                  ainsi qu'à un arsenal d'armes redoutables pour mener à bien vos
-                  missions.
-                </p>
-              </div>
-
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/planet.png"></img>
-              </div>
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Profil recherché</h1>
-                <p class="break-words lg:text-lg p-6">
-                  Quelles sont les qualités requises pour devenir un chasseur de prime
-                  ? Tout d'abord, une détermination inébranlable et une volonté de fer
-                  sont essentielles. Vous devrez faire face à des situations
-                  périlleuses, prendre des décisions cruciales en un clin d'œil et
-                  toujours garder un sang-froid absolu.
-                </p>
-              </div>
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/background.jpeg"></img>
-              </div>
-
-              <div class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Prérequis</h1>
-                <p class="break-words lg:text-lg p-6">
-                  Une connaissance des systèmes stellaires, des planètes et des
-                  cultures diverses sera également un atout précieux. La capacité à
-                  s'adapter rapidement à des environnements hostiles et à naviguer
-                  dans les méandres des pires repaires criminels sera cruciale pour le
-                  succès de vos missions.
-                </p>
-              </div>
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/jawa.png"></img>
-              </div>
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Petit +</h1>
-                <p class="break-words lg:text-lg p-6">
-                  Si vous êtes un as du pilotage, un tireur d'élite ou un maître du
-                  combat au corps à corps, vos compétences seront mises à profit. Les
-                  chasseurs de prime doivent être polyvalents, capables de s'adapter à
-                  toutes les situations et de résoudre les problèmes de manière
-                  créative.
-                </p>
-              </div>
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/background2.jpg"></img>
-              </div>
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Rémunération</h1>
-                <p class="break-words lg:text-lg p-6">
-                  La Guilde des Chasseurs de prime vous offre un réseau de contacts,
-                  de soutien et de ressources pour vous aider dans votre quête de
-                  justice. Vous serez récompensé généreusement pour chaque cible
-                  capturée, avec des primes à la hauteur des plus grandes légendes.
-                </p>
-              </div>
-
-              <div id="hover" class="cursor-pointer rounded-md hover-effect">
-                <img class="rounded-md object-cover w-full h-max sm:aspect-[3/4] md:aspect-square lg:aspect-[2/3] xl:aspect-square 2xl:aspect-video" src="../media/home/currency.png"></img>
-              </div>
-
-              <div id="hover" class="bg-gray-900 text-white p-4 cursor-pointer text-center sm:col-span-2 md:col-span-2 lg:col-span-1 rounded-md flex flex-col justify-center hover-effect">
-                <h1 class="text-2xl sm:text-4xl font-bold p-6">Rejoignez-nous !</h1>
-                <p class="break-words lg:text-lg p-6">
-                  Rejoignez-nous maintenant et devenez une force de changement dans la
-                  galaxie. La Guilde des Chasseurs de prime a besoin de vous pour
-                  rétablir l'équilibre et apporter la paix aux systèmes opprimés.
-                </p>
-              </div>
-
-            </div>
+        <a href="/films/">
+          <div id="hover" class="cursor-pointer rounded-md hover-effect">
+            <img
+              class="rounded-md object-cover w-full h-max sm:aspect-video md:aspect-video lg:aspect-video xl:aspect-square 2xl:aspect-video"
+              src="../media/home/star-wars.jpg"
+            />
           </div>
+        </a>
+
+        <div
+          class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect"
+        >
+          <a href="/characters/">
+            <h1 class="text-2xl sm:text-4xl font-bold p-6">Characters</h1>
+            <p class="break-words lg:text-lg p-6">
+              Les personnages de Star Wars sont incroyablement diversifiés et
+              fascinants. De Jedi courageux à des Sith redoutables, des pilotes
+              audacieux à des contrebandiers rusés, chaque personnage a sa
+              propre histoire et son propre rôle à jouer dans la saga. Certains
+              sont des héros incontestés, d'autres sont des anti-héros en quête
+              de rédemption, et d'autres encore sont des méchants impitoyables.
+              Leurs interactions, leurs choix et leurs évolutions façonnent
+              l'univers de Star Wars de manière significative.
+            </p>
+          </a>
         </div>
+
+        <a href="/characters/">
+          <div id="hover" class="cursor-pointer rounded-md hover-effect">
+            <img
+              class="rounded-md object-cover w-full h-max sm:aspect-video md:aspect-video lg:aspect-video xl:aspect-square 2xl:aspect-video"
+              src="../media/home/characters.jpeg"
+            />
+          </div>
+        </a>
+
+        <div
+          class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect"
+        >
+          <a href="/planets/">
+            <h1 class="text-2xl sm:text-4xl font-bold p-6">Planets</h1>
+            <p class="break-words lg:text-lg p-6">
+              Les planètes de Star Wars sont des mondes extraordinaires qui
+              servent de décors à l'action et aux aventures de la saga. De
+              Tatooine, avec ses vastes étendues désertiques et ses deux
+              soleils, à Coruscant, une métropole galactique animée, en passant
+              par Hoth, une planète glaciale inhospitalière, chaque planète a sa
+              propre atmosphère, sa propre culture et son propre paysage.
+              Certaines planètes sont le théâtre de batailles épiques, tandis
+              que d'autres abritent des communautés pacifiques ou des mystères
+              anciens.
+            </p>
+          </a>
+        </div>
+
+        <a href="/planets/">
+          <div id="hover" class="cursor-pointer rounded-md hover-effect">
+            <img
+              class="rounded-md object-cover w-full h-max sm:aspect-video md:aspect-video lg:aspect-video xl:aspect-square 2xl:aspect-video"
+              src="../media/home/planet.png"
+            />
+          </div>
+        </a>
+
+        <div
+          class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect"
+        >
+          <a href="/species/">
+            <h1 class="text-2xl sm:text-4xl font-bold p-6">Species</h1>
+            <p class="break-words lg:text-lg p-6">
+              Les espèces de Star Wars sont variées et captivantes. Des humains
+              aux Wookiees, en passant par les droïdes et les Hutts, chaque
+              espèce possède des caractéristiques uniques qui les distinguent.
+              Certaines espèces sont connues pour leur force physique, d'autres
+              pour leur intelligence ou leurs compétences techniques. Certaines
+              espèces sont en conflit les unes avec les autres, tandis que
+              d'autres coexistent pacifiquement. L'étude des différentes espèces
+              de Star Wars nous donne un aperçu de la diversité et de la
+              complexité de l'univers dans lequel se déroule la saga.
+            </p>
+          </a>
+        </div>
+
+        <a href="/species/">
+          <div id="hover" class="cursor-pointer rounded-md hover-effect">
+            <img
+              class="rounded-md object-cover w-full h-max sm:aspect-video md:aspect-video lg:aspect-video xl:aspect-square 2xl:aspect-video"
+              src="../media/home/jawa.png"
+            />
+          </div>
+        </a>
+
+        <div
+          class="bg-gray-900 text-white p-4 cursor-pointer text-center rounded-md flex flex-col justify-center hover-effect"
+        >
+          <a href="/starships_vehicles/">
+            <h1 class="text-2xl sm:text-4xl font-bold p-6">
+              Starships & Vehicles
+            </h1>
+            <p class="break-words lg:text-lg p-6">
+              Les vaisseaux spatiaux et les véhicules sont des éléments
+              essentiels de l'univers de Star Wars. Du célèbre Faucon Millenium
+              aux chasseurs X-wing en passant par les imposants destroyers
+              stellaires, ces engins transportent les personnages à travers la
+              galaxie et jouent un rôle clé dans les batailles et les missions.
+              Chaque vaisseau a ses propres caractéristiques techniques, son
+              design distinctif et son équipement spécialisé. Que ce soit pour
+              explorer de nouvelles planètes, combattre les forces du mal ou
+              effectuer des courses effrénées, les vaisseaux et véhicules de
+              Star Wars sont des icônes emblématiques de la franchise.
+            </p>
+          </a>
+        </div>
+
+        <a href="/starships_vehicles/">
+          <div id="hover" class="cursor-pointer rounded-md hover-effect">
+            <img
+              class="rounded-md object-cover w-full h-max sm:aspect-video md:aspect-video lg:aspect-video xl:aspect-square 2xl:aspect-video"
+              src="../media/home/Star-Wars-Ships.jpg"
+            />
+          </div>
+        </a>
+      </div>
 
       {% endblock %}
-
     </main>
 
     <footer class="dark:bg-gray-800">
-      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <div
+        class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+      >
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2023 <a href="/" class="hover:underline">Star Wiki™</a>. All Rights Reserved.
+          © 2023 <a href="/" class="hover:underline">Star Wiki™</a>. All Rights
+          Reserved.
         </span>
-        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <ul
+          class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+        >
           <li>
             <a href="/about/" class="mr-4 hover:underline md:mr-6">About</a>
           </li>
@@ -282,9 +307,8 @@
         </ul>
       </div>
     </footer>
-  </div>
-    
-  {% block scripts %}
+
+    {% block scripts %}
 
     <script>
       function myHoverFunction() {
@@ -293,7 +317,6 @@
       }
     </script>
 
-  {% endblock scripts %}
-
+    {% endblock scripts %}
   </body>
 </html>

@@ -5,14 +5,8 @@ from django.http import Http404
 def index(request):
     return render(request, "index.html")
 
-def contact(request):
-    return render(request, "contact.html")
-
-def fake_request_view(request):
-    # Simulation d'une erreur
-    error_message = "Une erreur s'est produite lors du traitement de la requête."
-
-    return render(request, 'error.html', {'error_message': error_message})
+def error_404(request):
+    return render(request, '404.html')
 
 def characters(request):
     url = 'https://akabab.github.io/starwars-api/api/all.json'
