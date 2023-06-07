@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, re_path
 
 from .views import index, characters, error_404, films, planets, species, starships_vehicles, character_details
 from StarWarsWiki import settings
@@ -26,6 +26,8 @@ urlpatterns = [
     path('planets/', planets, name="planets"),
     path('species/', species, name="species"),
     path('starships_vehicles/', starships_vehicles, name="starships_vehicles"),
-    path('404/', error_404, name='404'),
-    path('id/<str:character_id>/', character_details, name='character_details'),
+    re_path(r'^id/(?P<character_id>[1-9]|[1-7][0-9]|[8][0-8])/$', character_details, name='character_details'),
+    # La route par défaut pour la page 404
+    re_path(r'^.*/$', error_404),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

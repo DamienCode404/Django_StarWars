@@ -9,13 +9,22 @@
     class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40"
   >
     <div class="w-full font-mono flex flex-col items-center relative z-10">
-      <h1
-        class="font-extrabold text-5xl text-center text-white leading-tight mt-4"
-      >
+      <h1 class="font-extrabold text-5xl text-center text-white leading-tight">
         {{ error_message }}
       </h1>
 
-      <p class="font-extrabold text-8xl my-44 text-white animate-bounce">404</p>
+      <p class="font-extrabold text-8xl mt-28 mb-16 text-white animate-bounce">
+        Error 404
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-8 py-4 mt-6 font-extrabold text-2xl text-white bg-black rounded-lg border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors duration-300"
+      >
+        <span class="mr-2">
+          <i class="fab fa-jedi-order"></i>
+        </span>
+        Back to homepage
+      </a>
     </div>
   </div>
 </div>
