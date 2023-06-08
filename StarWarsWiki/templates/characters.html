@@ -8,45 +8,73 @@
   <div
     class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
   >
-    <h1
-      class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
-    >
+    <h1 class="animate-pulse text-5xl font-bold text-white text-center">
       All Characters
     </h1>
   </div>
 </div>
 
+<form
+  action=""
+  method="GET"
+  class="flex justify-center items-center flex-col md:flex-row"
+>
+  <label
+    for="affiliation"
+    class="block text-sm font-medium text-gray-900 dark:text-white"
+  ></label>
+  <select
+    name="affiliation"
+    id="affiliation"
+    class="bg-gray-50 border m-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  >
+    <option value="">Tous</option>
+    {% for affiliation in affiliations %}
+    <option value="{{ affiliation }}">{{ affiliation }}</option>
+    {% endfor %}
+  </select>
+  <button
+    type="submit"
+    class="text-white m-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+  >
+    Submit
+  </button>
+</form>
+
 <div
-  class="justify-center grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 p-8"
+  class="justify-center grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 p-8 characters-container"
 >
   {% for character in characters %}
-  <div
-    class="h-auto max-w-full rounded-lg flex flex-col justify-center items-center"
-  >
+  <div class="character" data-affiliation="{{ character.affiliations }}">
     <div
-      class="max-w-sm w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      class="h-auto max-w-full rounded-lg flex flex-col justify-center items-center"
     >
-      <a href="/id/{{ character.id }}">
-        <img
-          class="w-full h-96 object-cover object-top rounded-t-lg"
-          src="{{ character.image }}"
-          alt="{{ character.name }}"
-        />
-      </a>
-
-      <div class="flex flex-col items-center justify-center">
+      <div
+        class="max-w-sm w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      >
         <a href="/id/{{ character.id }}">
-          <h5
-            class="p-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-          >
-            {{ character.name }}
-          </h5>
+          <img
+            class="w-full h-96 object-cover object-top rounded-t-lg"
+            src="{{ character.image }}"
+            alt="{{ character.name }}"
+          />
         </a>
-        <a
-          href="/id/{{ character.id }}"
-          class="w-full h-12 rounded-b-lg text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >Info</a
-        >
+
+        <div class="flex flex-col items-center justify-center">
+          <a href="/id/{{ character.id }}">
+            <h5
+              class="p-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              {{ character.name }}
+            </h5>
+          </a>
+          <a
+            href="/id/{{ character.id }}"
+            class="w-full h-12 rounded-b-lg text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Info
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -54,5 +82,25 @@
 </div>
 
 {% endblock content %} {% block scripts %}
-<script></script>
+<script>
+  const filterButtons = document.querySelectorAll(".filter-button");
+  const characters = document.querySelectorAll(".character");
+
+  const jediButton = document.querySelector("#jedi-button");
+
+  jediButton.addEventListener("click", () => {
+    const affiliation = jediButton.getAttribute("data-affiliation");
+
+    characters.forEach((character) => {
+      const characterAffiliations = character.dataset.affiliation.split(", ");
+
+      if (characterAffiliations.includes(affiliation)) {
+        character.style.display = "block";
+      } else {
+        character.style.display = "none";
+      }
+    });
+  });
+</script>
+
 {% endblock scripts %}

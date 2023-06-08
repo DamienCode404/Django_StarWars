@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <title>Star Wiki</title>
     {% tailwind_css %}
   </head>
-
+  {% block style %}
   <style>
     .hover-effect {
       transition: box-shadow 0.3s;
@@ -18,6 +19,7 @@
       box-shadow: 0 0 5px 10px rgba(255, 255, 255, 0.5);
     }
   </style>
+  {% endblock style %}
 
   <body class="bg-black flex flex-col min-h-screen">
     <header>
@@ -28,7 +30,11 @@
           class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
         >
           <a href="/" class="flex items-center">
-            <img class="h-8 mr-3" src="../media/home/logo.png" />
+            <img
+              class="h-8 mr-3"
+              src="{% block logo_src %}../media/home/logo.png{% endblock %}
+            "
+            />
             <span
               class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
               >Star Wiki</span
@@ -126,10 +132,8 @@
         <div
           class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
         >
-          <h1
-            class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
-          >
-            Bienvenue petit Padawan
+          <h1 class="animate-pulse text-5xl font-bold text-white text-center">
+            Welcome, young Padawan.
           </h1>
         </div>
       </div>
@@ -141,15 +145,14 @@
           <a href="/films/">
             <h1 class="text-2xl sm:text-4xl font-bold p-6">Films</h1>
             <p class="break-words lg:text-lg p-6">
-              Les films constituent une partie essentielle de l'univers de Star
-              Wars. Ils nous transportent dans une galaxie lointaine et nous
-              font vivre des aventures épiques. Chaque film offre son lot
-              d'action, de drame, de romance et de moments mémorables. Des
-              personnages emblématiques, tels que Luke Skywalker, Darth Vader et
-              Princess Leia, prennent vie à l'écran et nous captivent avec leurs
-              histoires. Que ce soit la trilogie originale, la prélogie ou la
-              nouvelle trilogie, chaque film apporte sa contribution à
-              l'histoire riche et complexe de Star Wars.
+              Movies are an essential part of the Star Wars universe. They
+              transport us to a distant galaxy and take us on epic adventures.
+              Each film offers its share of action, drama, romance, and
+              memorable moments. Iconic characters like Luke Skywalker, Darth
+              Vader, and Princess Leia come to life on the screen, captivating
+              us with their stories. Whether it's the original trilogy, the
+              prequels, or the new trilogy, each film contributes to the rich
+              and complex history of Star Wars.
             </p>
           </a>
         </div>
@@ -169,14 +172,13 @@
           <a href="/characters/">
             <h1 class="text-2xl sm:text-4xl font-bold p-6">Characters</h1>
             <p class="break-words lg:text-lg p-6">
-              Les personnages de Star Wars sont incroyablement diversifiés et
-              fascinants. De Jedi courageux à des Sith redoutables, des pilotes
-              audacieux à des contrebandiers rusés, chaque personnage a sa
-              propre histoire et son propre rôle à jouer dans la saga. Certains
-              sont des héros incontestés, d'autres sont des anti-héros en quête
-              de rédemption, et d'autres encore sont des méchants impitoyables.
-              Leurs interactions, leurs choix et leurs évolutions façonnent
-              l'univers de Star Wars de manière significative.
+              The characters in Star Wars are incredibly diverse and
+              fascinating. From brave Jedi to formidable Sith, daring pilots to
+              cunning smugglers, each character has their own story and role to
+              play in the saga. Some are undisputed heroes, others are
+              anti-heroes seeking redemption, and still others are ruthless
+              villains. Their interactions, choices, and evolutions
+              significantly shape the Star Wars universe.
             </p>
           </a>
         </div>
@@ -196,15 +198,13 @@
           <a href="/planets/">
             <h1 class="text-2xl sm:text-4xl font-bold p-6">Planets</h1>
             <p class="break-words lg:text-lg p-6">
-              Les planètes de Star Wars sont des mondes extraordinaires qui
-              servent de décors à l'action et aux aventures de la saga. De
-              Tatooine, avec ses vastes étendues désertiques et ses deux
-              soleils, à Coruscant, une métropole galactique animée, en passant
-              par Hoth, une planète glaciale inhospitalière, chaque planète a sa
-              propre atmosphère, sa propre culture et son propre paysage.
-              Certaines planètes sont le théâtre de batailles épiques, tandis
-              que d'autres abritent des communautés pacifiques ou des mystères
-              anciens.
+              The planets of Star Wars are extraordinary worlds that serve as
+              backdrops for the action and adventures of the saga. From Tatooine
+              with its vast desert landscapes and twin suns, to Coruscant, a
+              bustling galactic metropolis, to Hoth, an inhospitable icy planet,
+              each planet has its own atmosphere, culture, and landscape. Some
+              planets are the stage for epic battles, while others are home to
+              peaceful communities or ancient mysteries.
             </p>
           </a>
         </div>
@@ -224,15 +224,14 @@
           <a href="/species/">
             <h1 class="text-2xl sm:text-4xl font-bold p-6">Species</h1>
             <p class="break-words lg:text-lg p-6">
-              Les espèces de Star Wars sont variées et captivantes. Des humains
-              aux Wookiees, en passant par les droïdes et les Hutts, chaque
-              espèce possède des caractéristiques uniques qui les distinguent.
-              Certaines espèces sont connues pour leur force physique, d'autres
-              pour leur intelligence ou leurs compétences techniques. Certaines
-              espèces sont en conflit les unes avec les autres, tandis que
-              d'autres coexistent pacifiquement. L'étude des différentes espèces
-              de Star Wars nous donne un aperçu de la diversité et de la
-              complexité de l'univers dans lequel se déroule la saga.
+              The species of Star Wars are varied and captivating. From humans
+              to Wookiees, droids to Hutts, each species possesses unique
+              characteristics that set them apart. Some species are known for
+              their physical strength, others for their intelligence or
+              technical skills. Some species are in conflict with each other,
+              while others coexist peacefully. Studying the different species of
+              Star Wars gives us insight into the diversity and complexity of
+              the universe in which the saga takes place.
             </p>
           </a>
         </div>
@@ -254,16 +253,15 @@
               Starships & Vehicles
             </h1>
             <p class="break-words lg:text-lg p-6">
-              Les vaisseaux spatiaux et les véhicules sont des éléments
-              essentiels de l'univers de Star Wars. Du célèbre Faucon Millenium
-              aux chasseurs X-wing en passant par les imposants destroyers
-              stellaires, ces engins transportent les personnages à travers la
-              galaxie et jouent un rôle clé dans les batailles et les missions.
-              Chaque vaisseau a ses propres caractéristiques techniques, son
-              design distinctif et son équipement spécialisé. Que ce soit pour
-              explorer de nouvelles planètes, combattre les forces du mal ou
-              effectuer des courses effrénées, les vaisseaux et véhicules de
-              Star Wars sont des icônes emblématiques de la franchise.
+              Spaceships and vehicles are essential elements of the Star Wars
+              universe. From the famous Millennium Falcon to X-wing fighters to
+              the imposing Star Destroyers, these vehicles transport characters
+              across the galaxy and play a key role in battles and missions.
+              Each ship has its own technical features, distinctive design, and
+              specialized equipment. Whether it's exploring new planets,
+              fighting the forces of evil, or engaging in thrilling races, the
+              spaceships and vehicles of Star Wars are iconic symbols of the
+              franchise.
             </p>
           </a>
         </div>
@@ -278,33 +276,50 @@
         </a>
       </div>
 
-      {% endblock %}
+      {% endblock content %}
     </main>
 
-    <footer class="dark:bg-gray-800">
-      <div
-        class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
-      >
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2023 <a href="/" class="hover:underline">Star Wiki™</a>. All Rights
-          Reserved.
-        </span>
-        <ul
-          class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+    <footer class="bg-white shadow dark:bg-gray-900">
+      <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <a href="/" class="flex items-center mb-4 sm:mb-0">
+            <img
+              src="{% block logo_src2 %}../media/home/logo.png{% endblock %}"
+              class="h-8 mr-3"
+              alt="Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+              >Star Wiki</span
+            >
+          </a>
+          <ul
+            class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+          >
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <hr
+          class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+        />
+        <span
+          class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"
+          >© 2023 <a href="/" class="hover:underline">Star Wiki™</a>. All Rights
+          Reserved.</span
         >
-          <li>
-            <a href="/about/" class="mr-4 hover:underline md:mr-6">About</a>
-          </li>
-          <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-          </li>
-          <li>
-            <a href="/contact/" class="hover:underline">Contact</a>
-          </li>
-        </ul>
       </div>
     </footer>
 

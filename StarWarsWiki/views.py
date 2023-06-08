@@ -11,7 +11,7 @@ def error_404(request):
 def characters(request):
     url = 'https://akabab.github.io/starwars-api/api/all.json'
     response = requests.get(url)
-
+    
     if response.status_code == 200:
         data = response.json()
         characters = data
@@ -19,8 +19,22 @@ def characters(request):
         error_message = 'Une erreur s\'est produite lors de la récupération des personnages de Star Wars.'
         return render(request, 'error.html', {'error_message': error_message})
 
-    context = {'characters': characters}
+    # Extraction des affiliations uniques pour le filtrage
+    affiliations = set()
+    for character in characters:
+        affiliations.update(character['affiliations'])
+
+    # Filtrage par affiliation
+    affiliation = request.GET.get('affiliation')
+    if affiliation:
+        characters = [character for character in characters if affiliation in character['affiliations']]
+
+    context = {
+        'characters': characters,
+        'affiliations': affiliations,
+    }
     return render(request, 'characters.html', context)
+
 
 def get_character_details(character_id):
     url = f'https://akabab.github.io/starwars-api/api/id/{character_id}.json'

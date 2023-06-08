@@ -8,9 +8,7 @@
   <div
     class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
   >
-    <h1
-      class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
-    >
+    <h1 class="animate-pulse text-5xl font-bold text-white text-center">
       Planets
     </h1>
   </div>
@@ -22,14 +20,14 @@
   {% for planet in planets %}
   <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
     <h2 class="text-xl font-bold mb-2">{{ planet.name }}</h2>
-    <p class="text-gray-600">Rotation: {{ planet.rotation_period }}</p>
-    <p class="text-gray-600">Orbite: {{ planet.orbital_period }}</p>
-    <p class="mt-4">Diamètre: {{ planet.diameter }}</p>
-    <p>Climat: {{ planet.climate }}</p>
-    <p>Gravité: {{ planet.gravity }}</p>
-    <p>Terrain: {{ planet.terrain }}</p>
-    <p>Eau en surface: {{ planet.surface_water }}</p>
-    <p>Population: {{ planet.population }}</p>
+    <p class="text-gray-600">Rotation period : {{ planet.rotation_period }}</p>
+    <p class="text-gray-600">Orbital period : {{ planet.orbital_period }}</p>
+    <p class="mt-4">Diameter : {{ planet.diameter }}</p>
+    <p>Climate : {{ planet.climate }}</p>
+    <p>Gravity : {{ planet.gravity }}</p>
+    <p>Terrain : {{ planet.terrain }}</p>
+    <p>Surface water : {{ planet.surface_water }}</p>
+    <p>Population : {{ planet.population }}</p>
   </div>
   {% endfor %}
 </div>

@@ -8,9 +8,7 @@
   <div
     class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
   >
-    <h1
-      class="animate-pulse text-3xl sm:text-5xl font-bold text-white text-center"
-    >
+    <h1 class="animate-pulse text-5xl font-bold text-white text-center">
       Species
     </h1>
   </div>
@@ -21,17 +19,17 @@
   {% for specie in species %}
   <div class="bg-white border border-gray-200 rounded-lg shadow p-6">
     <h2 class="text-xl font-bold mb-2">{{ specie.name }}</h2>
-    <p class="text-gray-600">Classification: {{ specie.classification }}</p>
-    <p class="text-gray-600">Désignation: {{ specie.designation }}</p>
-    <p class="text-gray-600">Taille moyenne: {{ specie.average_height }}</p>
-    <p class="text-gray-600">Couleurs de peau: {{ specie.skin_colors }}</p>
-    <p class="text-gray-600">Couleurs de cheveux: {{ specie.hair_colors }}</p>
-    <p class="text-gray-600">Couleurs des yeux: {{ specie.eye_colors }}</p>
+    <p class="text-gray-600">Classification : {{ specie.classification }}</p>
+    <p class="text-gray-600">Designation : {{ specie.designation }}</p>
+    <p class="text-gray-600">Average height : {{ specie.average_height }}</p>
+    <p class="text-gray-600">Skin colors : {{ specie.skin_colors }}</p>
+    <p class="text-gray-600">Hair colors : {{ specie.hair_colors }}</p>
+    <p class="text-gray-600">Eye colors : {{ specie.eye_colors }}</p>
     <p class="text-gray-600">
-      Espérance de vie moyenne: {{ specie.average_lifespan }}
+      Average lifespan : {{ specie.average_lifespan }}
     </p>
-    <p class="text-gray-600">Planète d'origine: {{ specie.homeworld }}</p>
-    <p class="text-gray-600">Langue: {{ specie.language }}</p>
+    <p class="text-gray-600">Homeworld : {{ specie.homeworld }}</p>
+    <p class="text-gray-600">Language : {{ specie.language }}</p>
   </div>
   {% endfor %}
 </div>
