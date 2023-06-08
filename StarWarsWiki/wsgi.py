@@ -1,5 +1,5 @@
 """
-WSGI config for Django_Shop project.
+WSGI config for StarWarsWiki project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Django_Shop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'StarWarsWiki.settings')
 
 application = get_wsgi_application()
 
