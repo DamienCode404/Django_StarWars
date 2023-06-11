@@ -1,6 +1,7 @@
 import requests
-from django.shortcuts import redirect, render
-from django.http import Http404
+from django.shortcuts import render
+from django.views.decorators.cache import cache_page
+import requests
 
 def index(request):
     return render(request, "index.html")
@@ -56,24 +57,7 @@ def character_details(request, character_id):
     context = {'character': character}
     return render(request, 'character_details.html', context)
 
-# def character_details(request, character_id):
-#     # Convertir l'ID du personnage en une chaîne de caractères
-#     character_id = str(character_id)
-
-#     # Charger le template correspondant à l'ID du personnage
-#     template_name = f"{character_id}.html"
-#     try:
-#         return render(request, template_name, {'character_id': character_id})
-#     except:
-#         # Récupérer les détails du personnage (vous devrez implémenter cette logique)
-#         character = get_character_details(character_id)
-
-#         if not character:
-#             return render(request, 'error.html', status=404)
-
-#         context = {'character': character}
-#         return render(request, 'id/character_details.html', context)
-    
+@cache_page(60 * 5)
 def films(request):
     url = 'https://swapi.dev/api/films/'
     response = requests.get(url)
@@ -82,12 +66,12 @@ def films(request):
         data = response.json()
         films = data['results']
     else:
-        error_message = 'Une erreur s\'est produite lors de la récupération des films de Star Wars.'
-        return render(request, 'error.html', {'error_message': error_message})
+        return render(request, '404.html', status=404)
 
     context = {'films': films}
     return render(request, 'films.html', context)
 
+@cache_page(60 * 5)
 def planets(request):
     planets = []
     next_url = 'https://swapi.dev/api/planets/'
@@ -100,12 +84,12 @@ def planets(request):
             planets += data['results']
             next_url = data['next']
         else:
-            error_message = 'Une erreur s\'est produite lors de la récupération des planets de Star Wars.'
-            return render(request, 'error.html', {'error_message': error_message})
+            return render(request, '404.html', status=404)
         
     context = {'planets': planets}
     return render(request, 'planets.html', context)
 
+# @cache_page(60 * 5)
 def species(request):
     species = []
     next_url = 'https://swapi.dev/api/species/'
@@ -118,8 +102,7 @@ def species(request):
             species += data['results']
             next_url = data['next']
         else:
-            error_message = 'Une erreur s\'est produite lors de la récupération des espèces de Star Wars.'
-            return render(request, 'error.html', {'error_message': error_message})
+            return render(request, 'error.html', status=404)
     
     for specie in species:
         homeworld_url = specie['homeworld']
@@ -137,6 +120,7 @@ def species(request):
     context = {'species': species}
     return render(request, 'species.html', context)
 
+@cache_page(60 * 5)
 def starships_vehicles(request):
     starships = []
     next_url_starships = 'https://swapi.dev/api/starships/'
@@ -159,9 +143,8 @@ def starships_vehicles(request):
             data = response.json()
             vehicles += data['results']
             next_url_vehicles = data['next']
-    except requests.exceptions.RequestException as e:
-        error_message = 'Une erreur s\'est produite lors de la récupération des données de Star Wars.'
-        return render(request, 'error.html', {'error_message': error_message, 'exception_message': str(e)})
+    except:
+        return render(request, '404.html', status=404)
 
     context = {'starships': starships, 'vehicles': vehicles}
     return render(request, 'starships_vehicles.html', context)
