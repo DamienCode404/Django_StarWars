@@ -1,6 +1,7 @@
 # Star Wars Wiki
 
 Star Wars Wiki is a web application developed as a Django project. It provides detailed information about the Star Wars movies, characters, planets, species, starships, and vehicles.
+[Star Wiki](https://star-wiki-chi.vercel.app/)
 
 ## Features
 
@@ -17,4 +18,5 @@ Star Wars Wiki is a web application developed as a Django project. It provides d
 - Django 3 - Python web framework
 - HTML5
 - CSS3 with Tailwind CSS - CSS framework
-- SWAPI (Star Wars API) - Public API for fetching Star Wars data
+- [SWAPI](https://github.com/Juriy/swapi) (Star Wars API) - Public API for fetching Star Wars data
+- [akabab/starwars-api](https://github.com/akabab/starwars-api) - StarWars characters open-source REST API
